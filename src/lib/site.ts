@@ -10,6 +10,15 @@ export const siteConfig = {
     legalName: "JULITH GmbH",
     url: "https://julith.gmbh",
     contactEmail: "info@wissenskern.ai",
+    legalEmail: "info@julith.gmbh",
+    address: {
+      street: "Erlengasse 3",
+      zip: "8240",
+      city: "Thayngen",
+      country: "Schweiz",
+    },
+    registerNumber: "CHE-164.714.634",
+    managingDirector: "Thomas Riehn",
   },
 } as const;
 
