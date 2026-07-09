@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} – Das Gehirn Ihres Unternehmens`,
+    title: `${siteConfig.name} – ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} – Das Gehirn Ihres Unternehmens`,
+    title: `${siteConfig.name} – ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   robots: {

@@ -162,9 +162,11 @@ export default function HomePage() {
               On-Premise-KI für den deutschen Mittelstand
             </p>
             <h1 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              Das Gehirn Ihres Unternehmens –{" "}
-              <span className="text-accent">lokal betrieben und nur mit Ihrem Wissen.</span>
+              Ihre Firma. <span className="text-accent">Ihre KI.</span>
             </h1>
+            <p className="mt-4 text-xl font-medium text-white/85">
+              Das Gehirn Ihres Unternehmens – lokal betrieben und nur mit Ihrem Wissen.
+            </p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
               WissensKern von JULITH GmbH verwandelt Ihr internes Unternehmenswissen in eine
               eigene, lokal gehostete KI – ohne dass Ihre Daten jemals in eine fremde Cloud

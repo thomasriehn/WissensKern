@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "WissensKern",
-  tagline: "Das Gehirn Ihres Unternehmens – lokal betrieben und nur mit Ihrem Wissen.",
+  tagline: "Ihre Firma. Ihre KI.",
   domain: "wissenskern.ai",
   url: "https://wissenskern.ai",
   description:
@@ -10,6 +10,15 @@ export const siteConfig = {
     legalName: "JULITH GmbH",
     url: "https://julith.gmbh",
     contactEmail: "info@wissenskern.ai",
+    legalEmail: "info@julith.gmbh",
+    address: {
+      street: "Erlengasse 3",
+      zip: "8240",
+      city: "Thayngen",
+      country: "Schweiz",
+    },
+    registerNumber: "CHE-164.714.634",
+    managingDirector: "Thomas Riehn",
   },
 } as const;
 

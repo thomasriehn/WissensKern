@@ -4,18 +4,14 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum von WissensKern, ein Produkt der JULITH GmbH.",
+  description: "Impressum von WissensKern, ein Produkt der JULITH GmbH, Schweiz.",
   alternates: { canonical: "/impressum" },
   robots: { index: true, follow: true },
 };
 
-/**
- * Platzhalter unten (in eckigen Klammern) enthalten reale, prüfungspflichtige
- * Angaben (Anschrift, Geschäftsführung, Registerdaten, USt-IdNr.) und müssen vor
- * Veröffentlichung durch die tatsächlichen Angaben der JULITH GmbH ersetzt werden.
- * Ein unvollständiges Impressum kann abgemahnt werden.
- */
 export default function ImpressumPage() {
+  const { address } = siteConfig.company;
+
   return (
     <section className="py-16 sm:py-20">
       <Container className="max-w-3xl">
@@ -26,32 +22,33 @@ export default function ImpressumPage() {
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted">
           <div>
             <h2 className="text-lg font-semibold text-ink dark:text-white">
-              Angaben gemäß § 5 DDG (vormals § 5 TMG)
+              Anbieterkennzeichnung
             </h2>
             <p className="mt-3">
               {siteConfig.company.legalName}
               <br />
-              [Straße und Hausnummer]
+              {address.street}
               <br />
-              [PLZ und Ort]
+              {address.zip} {address.city}
               <br />
-              Deutschland
+              {address.country}
             </p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold text-ink dark:text-white">Vertreten durch</h2>
-            <p className="mt-3">Geschäftsführung: [Vor- und Nachname der Geschäftsführung]</p>
+            <p className="mt-3">Geschäftsführer: {siteConfig.company.managingDirector}</p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold text-ink dark:text-white">Kontakt</h2>
             <p className="mt-3">
-              Telefon: [Telefonnummer]
-              <br />
               E-Mail:{" "}
-              <a href={`mailto:${siteConfig.company.contactEmail}`} className="text-accent-strong underline underline-offset-2">
-                {siteConfig.company.contactEmail}
+              <a
+                href={`mailto:${siteConfig.company.legalEmail}`}
+                className="text-accent-strong underline underline-offset-2"
+              >
+                {siteConfig.company.legalEmail}
               </a>
               <br />
               Website:{" "}
@@ -67,81 +64,53 @@ export default function ImpressumPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-ink dark:text-white">Registereintrag</h2>
+            <h2 className="text-lg font-semibold text-ink dark:text-white">
+              Handelsregister / UID
+            </h2>
             <p className="mt-3">
-              Eintragung im Handelsregister
+              Handelsregister-Nr. / Unternehmens-Identifikationsnummer (UID):
               <br />
-              Registergericht: [Registergericht, z. B. Amtsgericht ...]
-              <br />
-              Registernummer: [HRB-Nummer]
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-ink dark:text-white">Umsatzsteuer-ID</h2>
-            <p className="mt-3">
-              Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
-              <br />
-              [USt-IdNr.]
+              {siteConfig.company.registerNumber}
             </p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold text-ink dark:text-white">
-              Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+              Hinweis zum Angebot
             </h2>
             <p className="mt-3">
-              [Vor- und Nachname]
-              <br />
-              [Anschrift wie oben]
+              {siteConfig.company.legalName} hat ihren Sitz in der Schweiz. WissensKern (
+              {siteConfig.url}) ist ein Produkt der {siteConfig.company.legalName} und richtet
+              sich als B2B-Angebot auch an Unternehmenskundinnen und -kunden in Deutschland und
+              der übrigen EU. Es liegt kein Verbraucherangebot im Sinne der
+              Verbraucherstreitbeilegung vor.
             </p>
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-ink dark:text-white">Haftung für Inhalte</h2>
+            <h2 className="text-lg font-semibold text-ink dark:text-white">Haftungsausschluss</h2>
             <p className="mt-3">
-              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen
-              Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir
-              als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte
-              fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
-              rechtswidrige Tätigkeit hinweisen.
+              Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt. Für die
+              Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine
+              Gewähr. Als Anbieterin sind wir für eigene Inhalte auf dieser Website nach den
+              allgemeinen gesetzlichen Bestimmungen verantwortlich.
             </p>
             <p className="mt-3">
-              Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
-              allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist
-              jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich.
-              Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte
-              umgehend entfernen.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-ink dark:text-white">Haftung für Links</h2>
-            <p className="mt-3">
-              Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren
-              Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte
-              auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der
-              jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+              Diese Website kann Links zu externen Websites Dritter enthalten, auf deren Inhalte
+              wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir daher keine
+              Gewähr; verantwortlich ist stets die jeweilige Anbieterin oder der jeweilige
+              Betreiber der verlinkten Seite. Bei Bekanntwerden von Rechtsverletzungen werden
+              entsprechende Links umgehend entfernt.
             </p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold text-ink dark:text-white">Urheberrecht</h2>
             <p className="mt-3">
-              Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-              unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche
-              gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
-              Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
-              Zustimmung des jeweiligen Autors bzw. Erstellers.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-ink dark:text-white">Hinweis zum Angebot</h2>
-            <p className="mt-3">
-              WissensKern ({siteConfig.url}) ist ein Produkt der {siteConfig.company.legalName}{" "}
-              und richtet sich an Unternehmenskunden (B2B). Es liegt kein Verbraucherangebot im
-              Sinne der Verbraucherstreitbeilegung vor.
+              Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf dieser Website
+              unterliegen dem Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und
+              jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts bedürfen der
+              schriftlichen Zustimmung der {siteConfig.company.legalName}.
             </p>
           </div>
         </div>

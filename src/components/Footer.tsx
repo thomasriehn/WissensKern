@@ -65,7 +65,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {siteConfig.company.legalName} · {siteConfig.name}
           </p>
-          <p>Made in Germany · Hosting &amp; Datenverarbeitung ausschließlich in der EU</p>
+          <p>Ein Schweizer Unternehmen · Für den deutschen Mittelstand entwickelt</p>
         </Container>
       </div>
     </footer>

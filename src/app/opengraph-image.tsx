@@ -47,11 +47,11 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 980 }}>
-          <div style={{ fontSize: 54, fontWeight: 700, lineHeight: 1.15, display: "flex" }}>
-            Das Gehirn Ihres Unternehmens –
+          <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.15, display: "flex" }}>
+            Ihre Firma.
           </div>
-          <div style={{ fontSize: 54, fontWeight: 700, lineHeight: 1.15, color: "#3ddbb0", display: "flex" }}>
-            lokal betrieben, nur mit Ihrem Wissen.
+          <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.15, color: "#3ddbb0", display: "flex" }}>
+            Ihre KI.
           </div>
           <div style={{ fontSize: 26, color: "rgba(255,255,255,0.75)", display: "flex" }}>
             On-Premise-KI für den deutschen Mittelstand · {siteConfig.company.legalName}
