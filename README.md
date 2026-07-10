@@ -48,6 +48,7 @@ cp .env.example .env.local
 | `SMTP_SECURE`  | `"true"` für implizites TLS (z. B. Port 465), sonst `"false"`                 | `false` |
 | `SMTP_USER`    | Optional: Benutzername, falls der Server/Postfix-Relay Auth verlangt          | leer |
 | `SMTP_PASS`    | Optional: Passwort, falls der Server/Postfix-Relay Auth verlangt              | leer |
+| `SMTP_TLS_REJECT_UNAUTHORIZED` | `"false"`, wenn Postfix ein selbstsigniertes Zertifikat anbietet (siehe unten) | `true` |
 | `MAIL_FROM`    | Absenderadresse der versendeten Mails                                        | `OnLumis Website <no-reply@onlumis.ai>` |
 | `MAIL_TO`      | Empfängeradresse für eingehende Kontaktanfragen                              | `info@onlumis.ai` |
 
@@ -100,6 +101,23 @@ und in `/etc/postfix/sasl_passwd` die Zugangsdaten hinterlegen (danach
 in diesem Fall weiterhin nur mit dem lokalen Postfix auf `localhost:25` –
 `SMTP_USER`/`SMTP_PASS` in der `.env` bleiben leer, da die Authentifizierung
 beim Smarthost von Postfix übernommen wird.
+
+### Fehler "self-signed certificate" beim Versand
+
+Postfix bietet beim STARTTLS-Handshake standardmäßig ein selbst generiertes
+("snakeoil") Zertifikat an. nodemailer validiert Zertifikate standardmäßig
+streng und bricht den Versand dann mit `Error: self-signed certificate`
+(`code: 'ESOCKET'`) ab. Für die Verbindung zu einem lokalen, vertrauenswürdigen
+Postfix auf `localhost` ist das unkritisch – einfach in `.env.local` setzen:
+
+```
+SMTP_TLS_REJECT_UNAUTHORIZED=false
+```
+
+und die Anwendung neu starten (`sudo systemctl restart onlumis` bzw. den
+entsprechenden Service-Namen). Bei einem extern erreichbaren Smarthost mit
+gültigem, von einer öffentlichen CA signiertem Zertifikat sollte diese
+Variable auf `true` (Standard) bleiben.
 
 ### Test des Mailversands
 
